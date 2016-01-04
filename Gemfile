@@ -1,4 +1,24 @@
 source 'https://rubygems.org'
 
-gem 'byebug'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'jbuilder'
+gem 'mysql2', '>= 0.3.13', '< 0.5'
+gem 'rails'
 gem 'ruby-trello'
+gem 'sass-rails'
+gem 'turbolinks'
+gem 'uglifier'
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+group :development, :test do
+  gem 'byebug'
+end
+
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
+end
