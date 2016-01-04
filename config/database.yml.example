@@ -1,0 +1,24 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: pair_stair_development
+
+test: &test
+  <<: *default
+  database: pair_stair_test
+
+production:
+  <<: *default
+  database: pair_stair_production
+  username: pair_stair
+  password: <%= ENV['PAIR_STAIR_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test
