@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe TrelloWrapper do
   describe "current_collaberations" do
-   pending
+    pending
   end
 end

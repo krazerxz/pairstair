@@ -1,9 +1,9 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe CardRetriever do
   describe "update" do
-    let(:collaberation_1) { Collaberation.new(id: "1", last_activity_date: Date.today )}
-    let(:collaberation_2) { Collaberation.new(id: "2", last_activity_date: Date.today )}
+    let(:collaberation_1) { Collaberation.new(id: "1", last_activity_date: Date.today) }
+    let(:collaberation_2) { Collaberation.new(id: "2", last_activity_date: Date.today) }
     let(:collaberations) { [collaberation_1, collaberation_2] }
 
     before do
