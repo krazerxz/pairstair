@@ -16,6 +16,7 @@ gem 'uglifier'
 group :development, :test do
   gem 'byebug'
   gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'rubocop'
   gem 'rspec-rails'
 end
