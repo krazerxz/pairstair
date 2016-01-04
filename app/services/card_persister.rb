@@ -15,9 +15,10 @@ class CardPersister
   end
 
   def self.create_collaberation_for collaberation_hash
-      collaberation_members = collaberation_hash.delete(:members)
-      collaberation = Collaberation.new(collaberation_hash)
-      collaberation.members = collaberation_members
+    collaberation_members = collaberation_hash.delete(:members)
+    collaberation = Collaberation.new(collaberation_hash)
+    collaberation.members = collaberation_members
+    collaberation.save
   end
 
   private_class_method :create_collaberation_for
