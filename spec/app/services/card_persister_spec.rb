@@ -19,9 +19,11 @@ describe CardPersister do
     end
 
     it "saves seperate collaberation for changing members on existing card do" do
+      pending
     end
 
     it "saves a collaberation where the same members are on an existing card, if the card has been modified" do
+      pending
     end
 
     it "does nothing when trying to save a collaberation on a card which already exists and has not been modified" do
