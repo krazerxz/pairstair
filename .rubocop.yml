@@ -1,0 +1,52 @@
+AllCops:
+  Exclude:
+    # Generated files
+    - Rakefile
+    - bin/*
+    - config/application.rb
+    - config/boot.rb
+    - config/environment.rb
+    - config/environments/*
+    - config/initializers/assets.rb
+    - config/initializers/cookies_serializer.rb
+    - config/initializers/session_store.rb
+    - db/**/*
+    - features/support/env.rb
+    - lib/tasks/cucumber.rake
+    - node_modules/**/*
+    - script/cucumber
+    - spec/rails_helper.rb
+    - spec/spec_helper.rb
+    # Not really part of the app
+    - script/post-reset
+    - setup/**/*
+    - Vagrantfile
+    - lib/tasks/default.rake
+Style/Lambda:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/TrailingComma:
+  EnforcedStyleForMultiline: comma
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
+Style/SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: false
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+Style/HashSyntax:
+  Exclude:
+    - lib/tasks/*
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - is_
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  Exclude:
+    - factories/**/*
