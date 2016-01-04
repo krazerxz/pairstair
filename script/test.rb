@@ -18,9 +18,13 @@ member = Trello::Member.find(ACCESS_MEMBER)
 main_board = member.boards.find {|board| board.id == MAIN_BOARD_ID }
 dev_list   = main_board.lists.find {|list| list.id == DEV_LIST_ID }
 dev_cards  = dev_list.cards.map {|card| card.serializable_hash.extract!(:id, :last_activity_date, :member_ids) }
-dev_cards.reject do|card| card[:member_ids].empty? end
+dev_cards_with_faces = dev_cards.reject do|card| card[:member_ids].empty? end
+# change :id to :card
+puts dev_cards_with_faces
 
 # MSB Members
 member_hash = {}
 members = Trello::Organization.find(ORG_ID).members
 members.map do |team_member| member_hash[team_member.id] = team_member.full_name end
+
+puts member_hash
