@@ -31,7 +31,7 @@ Style/TrailingComma:
 Documentation:
   Enabled: false
 Metrics/LineLength:
-  Max: 120
+  Max: 150
 Style/SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: false
 Style/MethodDefParentheses:

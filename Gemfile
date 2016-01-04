@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "coffee-rails"
+gem "figaro"
 gem "jquery-rails"
 gem "jbuilder"
 gem "mysql2", ">= 0.3.13", "< 0.5"
