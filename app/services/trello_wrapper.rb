@@ -2,8 +2,7 @@ class TrelloWrapper
   include TrelloHelper
 
   def self.current_collaberations
-    collaberations_hash = dev_cards_with_faces.each {|card| card[:card] = card.delete(:id) }
-    collaberations_hash.map {|card| Collaberation.new(card) }
+    dev_cards_with_faces.each {|card| card[:card] = card.delete(:id) }
   end
 
   def self.main_board

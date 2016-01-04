@@ -8,6 +8,7 @@ describe CardRetriever do
 
     before do
       allow(TrelloWrapper).to receive(:current_collaberations).and_return(collaberations)
+      allow(CardPersister).to receive(:save).with(collaberations)
     end
 
     it "fetches all cards from trello" do

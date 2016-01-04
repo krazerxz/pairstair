@@ -23,8 +23,7 @@ describe TrelloWrapper do
     it "retrieves cards with faces from the dev trello list" do
       allow(TrelloHelper).to receive(:member).and_return(member)
       allow(member).to receive(:boards).and_return(boards)
-      expect(Collaberation).to receive(:new).with(card: "facess_card", last_activity_date: Date.today, members: members)
-      TrelloWrapper.current_collaberations
+      expect(TrelloWrapper.current_collaberations).to match([card: "facess_card", last_activity_date: Date.today, members: members])
     end
   end
 end
