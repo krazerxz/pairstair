@@ -3,9 +3,9 @@ require "rails_helper"
 describe CardPersister do
   describe "save" do
     let(:member_1)             { double(:member_1) }
-    let(:collaberation_1)      { double(:collaberation_1, card: 1, last_activity_date: Date.today, members: [member_1]) }
-    let(:collaberation_1_hash) { {card: 1, last_activity_date: Date.today, members: [member_1]} }
-    let(:collaberation_persister) { double(:collaberation, last_activity_date: Date.today) }
+    let(:collaberation_1)      { double(:collaberation_1, card: 1, last_activity_date: Time.now, members: [member_1]) }
+    let(:collaberation_1_hash) { {card: 1, last_activity_date: Time.now, members: [member_1]} }
+    let(:collaberation_persister) { double(:collaberation, last_activity_date: Time.now) }
 
     before do
       allow(CollaberationPersister).to receive(:new).and_return(collaberation_persister)
@@ -25,7 +25,7 @@ describe CardPersister do
 
     it "does nothing when trying to save a collaberation on a card which already exists and has not been modified" do
       allow(Collaberation).to receive(:where).with(card: 1).and_return [collaberation_1]
-      expect(Collaberation).not_to receive(:new)
+      expect(CollaberationPersister).not_to receive(:new)
       CardPersister.save([collaberation_1_hash])
     end
   end
