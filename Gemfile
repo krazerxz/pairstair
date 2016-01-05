@@ -10,6 +10,7 @@ gem "ruby-trello"
 gem "sass-rails"
 gem "turbolinks"
 gem "uglifier"
+gem "whenever", require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
