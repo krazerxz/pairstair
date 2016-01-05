@@ -9,7 +9,7 @@ class CardPersister
   def self.card_exists_with_collaberators_and_unmodified? collaberation_hash
     collaberations = Collaberation.where(card: collaberation_hash[:card])
     collaberations.each do |collaberation|
-      return true if collaberation.last_activity_date == collaberation_hash[:last_activity_date]
+      return true if collaberation.last_activity_date.to_i == collaberation_hash[:last_activity_date].to_i
     end
     false
   end

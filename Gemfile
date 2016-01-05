@@ -16,6 +16,12 @@ gem "uglifier"
 
 group :development, :test do
   gem "byebug"
+  gem "spring"
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem "web-console", "~> 2.0"
+end
+
+group :test do
   gem "cucumber-rails", require: false
   gem "database_cleaner"
   gem "rubocop"
@@ -23,10 +29,4 @@ group :development, :test do
   gem "timecop"
   gem "vcr"
   gem "webmock"
-end
-
-group :development do
-  gem "spring"
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem "web-console", "~> 2.0"
 end
