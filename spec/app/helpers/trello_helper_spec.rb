@@ -9,6 +9,16 @@ describe TrelloHelper do
       expect(TrelloHelper.member).to eq trello_member
     end
   end
+
+  describe "organization_members" do
+    let(:organization_members) { [double(:member_1, id: 1, full_name: "chris"), double(:member_2, id: 2, full_name: "james")] }
+    let(:organization)         { double(:organization, members: organization_members) }
+
+    it "returns the members of the organization given by the trello_organization_id" do
+      allow(Trello::Organization).to receive(:find).with("559a469f07b1a13dcbc32258").and_return(organization)
+      expect(TrelloHelper.organization_members).to eq(organization_members)
+    end
+  end
 end
 
 # Trello.configure do |config|

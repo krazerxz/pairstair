@@ -28,10 +28,11 @@ describe TrelloWrapper do
   end
 
   describe "organization_members" do
-    let(:expected_result) {''}
+    let(:organization_members) { [double(:member_1, id: 1, full_name: "chris"), double(:member_2, id: 2, full_name: "james")] }
 
     it "returns all members in the organization" do
-      expect(TrelloWrapper.organization_members).to eq(expected_result)
+      allow(TrelloHelper).to receive(:organization_members).and_return(organization_members)
+      expect(TrelloWrapper.organization_members).to eq(organization_members)
     end
   end
 end

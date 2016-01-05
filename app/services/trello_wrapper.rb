@@ -7,7 +7,7 @@ class TrelloWrapper
   end
 
   def self.organization_members
-
+    TrelloHelper.organization_members
   end
 
   def self.main_board
