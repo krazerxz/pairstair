@@ -6,6 +6,10 @@ class TrelloWrapper
     dev_cards_with_faces.each {|card| card[:members] = card.delete(:member_ids) }
   end
 
+  def self.organization_members
+
+  end
+
   def self.main_board
     TrelloHelper.member.boards.find {|board| board.id == ENV["trello_main_board_id"] }
   end

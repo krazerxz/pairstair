@@ -26,4 +26,12 @@ describe TrelloWrapper do
       expect(TrelloWrapper.current_collaberations).to match([card: "facess_card", last_activity_date: Date.today, members: members])
     end
   end
+
+  describe "organization_members" do
+    let(:expected_result) {''}
+
+    it "returns all members in the organization" do
+      expect(TrelloWrapper.organization_members).to eq(expected_result)
+    end
+  end
 end

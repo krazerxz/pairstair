@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104132100) do
+ActiveRecord::Schema.define(version: 20160105134909) do
 
   create_table "collaberations", force: :cascade do |t|
     t.string   "card",               limit: 255
@@ -26,5 +26,10 @@ ActiveRecord::Schema.define(version: 20160104132100) do
   end
 
   add_index "members", ["collaberation_id"], name: "index_members_on_collaberation_id", using: :btree
+
+  create_table "organization_members", force: :cascade do |t|
+    t.string "trello_uuid", limit: 255
+    t.string "name",        limit: 255
+  end
 
 end
