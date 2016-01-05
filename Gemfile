@@ -8,7 +8,7 @@ gem "mysql2", ">= 0.3.13", "< 0.5"
 gem "rails"
 gem "ruby-trello"
 gem "sass-rails"
-gem "turbolinks"
+gem "slim-rails"
 gem "uglifier"
 gem "whenever", require: false
 
