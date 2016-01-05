@@ -2,7 +2,8 @@ class TrelloWrapper
   include TrelloHelper
 
   def self.current_collaberations
-    dev_cards_with_faces.each {|card| card[:card] = card.delete(:id) }
+    dev_cards_with_faces.each do|card| card[:card] = card.delete(:id) end
+    dev_cards_with_faces.each {|card| card[:members] = card.delete(:member_ids) }
   end
 
   def self.main_board
@@ -14,11 +15,11 @@ class TrelloWrapper
   end
 
   def self.dev_cards
-    dev_list.cards.map {|card| card.serializable_hash.extract!(:id, :last_activity_date, :members) }
+    dev_list.cards.map {|card| card.serializable_hash.extract!(:id, :last_activity_date, :member_ids) }
   end
 
   def self.dev_cards_with_faces
-    dev_cards.reject {|card| card[:members].empty? }
+    @cards ||= dev_cards.reject {|card| card[:member_ids].empty? }
   end
 
   private_class_method :main_board, :dev_list, :dev_cards, :dev_cards_with_faces

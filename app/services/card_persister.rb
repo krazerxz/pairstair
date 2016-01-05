@@ -2,7 +2,7 @@ class CardPersister
   def self.save collaberations
     collaberations.each do |collaberation_hash|
       next if card_exists_with_collaberators_and_unmodified? collaberation_hash
-      create_collaberation_for collaberation_hash
+      CollaberationPersister.new(collaberation_hash).persist
     end
   end
 
@@ -14,12 +14,28 @@ class CardPersister
     false
   end
 
-  def self.create_collaberation_for collaberation_hash
-    collaberation_members = collaberation_hash.delete(:members)
-    collaberation = Collaberation.new(collaberation_hash)
-    collaberation.members = collaberation_members
-    collaberation.save
+  private_class_method :card_exists_with_collaberators_and_unmodified?
+end
+
+class CollaberationPersister
+  def initialize collaberation_hash
+    @collaberation_hash = collaberation_hash
   end
 
-  private_class_method :create_collaberation_for
+  def persist
+    parse
+    @collaberation = Collaberation.new(@collaberation_hash)
+    @collaberation.members = members
+    @collaberation.save
+  end
+
+  def parse
+    @collaberation_member_ids = @collaberation_hash.delete(:members)
+  end
+
+  private
+
+  def members
+    @collaberation_member_ids.map {|member_uuid| Member.create(collaberation: @collaberation, member_uuid: member_uuid) }
+  end
 end
