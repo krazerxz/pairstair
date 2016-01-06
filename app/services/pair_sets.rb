@@ -6,7 +6,7 @@ class PairSets
   def calculate
     @collaberations.flat_map { |collaberation|
       pairs_for collaberation.members
-    }.uniq
+    }
   end
 
   private

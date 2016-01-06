@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "coffee-rails"
 gem "figaro"
+gem "font-awesome-rails"
 gem "jquery-rails"
 gem "jbuilder"
 # gem "less-rails"

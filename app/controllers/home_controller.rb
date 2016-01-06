@@ -22,7 +22,9 @@ class StairBuilder
 
       (0...row_index).each do |column_index|
         html << pre_td
-        html << "X" if pairs.find {|pair| pair[members[row_index].trello_uuid] == members[column_index].trello_uuid }
+        pairs_occuring_at(row_index, column_index, pairs, members).times.each do
+          html << "<i class='fa fa-star'></i>"
+        end
         html << post_td
       end
       if row_index == members.length - 1
@@ -33,5 +35,9 @@ class StairBuilder
       html << members[row_index].name + "<\/th><\/tr>"
     end
     html << "<\/table>"
+  end
+
+  def self.pairs_occuring_at row_index, column_index, pairs, members
+    pairs.count {|pair| pair[members[row_index].trello_uuid] == members[column_index].trello_uuid }
   end
 end
