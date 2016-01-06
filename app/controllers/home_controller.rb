@@ -22,7 +22,7 @@ class StairBuilder
 
       (0...row_index).each do |column_index|
         html << pre_td
-        html << "X" if pairs.find {|pair| pair[members[row_index - 1].trello_uuid] == members[column_index + 1].trello_uuid }
+        html << "X" if pairs.find {|pair| pair[members[row_index].trello_uuid] == members[column_index].trello_uuid }
         html << post_td
       end
       if row_index == members.length - 1
