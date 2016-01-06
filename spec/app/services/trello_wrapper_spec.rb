@@ -7,12 +7,14 @@ describe TrelloWrapper do
     let(:members)               { [member_1, member_2] }
     let(:card_hash)             { {id: "random_card", last_activity_date: Date.today, member_ids: []} }
     let(:card_with_faces_hash)  { {id: "facess_card", last_activity_date: Date.today, member_ids: members, random_key: "value"} }
+    let(:card_with_face_hash)   { {id: "face_card", last_activity_date: Date.today, member_ids: [member_1], random_key: "value"} }
 
     let(:card)                  { double(:card, serializable_hash: card_hash) }
     let(:card_with_faces)       { double(:card_with_faces, serializable_hash: card_with_faces_hash) }
+    let(:card_with_face)        { double(:card_with_face, serializable_hash: card_with_face_hash) }
 
     let(:another_list)  { {id: "another_list"} }
-    let(:dev_list)      { double(:dev_list, id: "dev_list_id", cards: [card, card_with_faces]) }
+    let(:dev_list)      { double(:dev_list, id: "dev_list_id", cards: [card, card_with_faces, card_with_face]) }
 
     let(:another_board) { double(:another_board, id: "another_board") }
     let(:main_board)    { double(:main_board, id: "559a4ecf3f95ecde0fc1d2e5", lists: [dev_list, another_list]) }

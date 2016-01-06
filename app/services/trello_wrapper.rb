@@ -24,6 +24,7 @@ class TrelloWrapper
 
   def self.dev_cards_with_faces
     @cards ||= dev_cards.reject {|card| card[:member_ids].empty? }
+    @cards.reject {|card| card[:member_ids].count == 1 }
   end
 
   private_class_method :main_board, :dev_list, :dev_cards, :dev_cards_with_faces

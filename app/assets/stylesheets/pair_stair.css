@@ -1,0 +1,55 @@
+body{ font: normal 16px sans-serif; }
+
+#title{ position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  height: 32px;
+  text-align: center;
+  font: bold 32px sans-serif; }
+
+#stair-container{
+  height: 700px;
+}
+
+#stairs{
+  left: 8px;
+  right: 8px;
+  height: 100%;
+  bottom: 8px;
+}
+
+#stairs table     { border-collapse: collapse;
+  border: 0px;
+  margin: 0px;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%; }
+
+#stairs th        { text-align: center;
+  vertical-align: bottom;
+  color: black;
+  padding-bottom: 4px; }
+
+#stairs th.last{ text-align: left;
+  vertical-align: middle;
+  color: black;
+  padding-left: 8px; }
+
+#stairs td        { border: solid black 1px; }
+
+#stairs .Hidden   { border: none;
+  visibility: hidden; }
+
+@media screen {
+  #input{ position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 60px;
+    height: 32px; }
+}
+
+@media print {
+  .Interactive{ display: none; }
+}
