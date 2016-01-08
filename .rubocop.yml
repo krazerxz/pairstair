@@ -22,7 +22,6 @@ AllCops:
     - setup/**/*
     - Vagrantfile
     - lib/tasks/default.rake
-    - app/services/stair_builder.rb
 Style/Lambda:
   Enabled: false
 Style/StringLiterals:

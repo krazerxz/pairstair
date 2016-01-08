@@ -3,6 +3,6 @@ class HomeController < ApplicationController
     collaberations = Collaberation.includes(:members)
     pairs = PairSets.new(collaberations).calculate
     @members = OrganizationMember.all
-    @stair = StairBuilder.html(@members, pairs)
+    @stair = StairBuilder.new(@members, pairs).html
   end
 end
