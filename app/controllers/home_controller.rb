@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
   def index
+    members = OrganizationMember.all
     collaberations = Collaberation.includes(:members)
-    pairs = PairSets.new(collaberations).calculate
-    @members = OrganizationMember.all
-    @stair = StairBuilder.new(@members, pairs).html
+
+    member_info = MemberInfo.new(members, collaberations)
+    @stair = StairBuilder.new(member_info).html
   end
 end

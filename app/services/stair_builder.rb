@@ -42,51 +42,35 @@ class StairComponent
   end
 end
 
-class MemberInfo
-  attr_reader :members
-  def initialize members
-    @members = members
-  end
-
-  def count
-    @members.count
-  end
-
-  def member_name_at index
-    @members[index].name
-  end
-end
-
 class StairBuilder
-  def initialize members, pairs
-    @member_info = MemberInfo.new(members)
-    @pairs = pairs
-    @stair_component = StairComponent.new(@member_info.count)
+  def initialize member_info
+    @member_info = member_info
   end
 
   def html
     html = "<table>"
 
     @member_info.count.times do |row_index|
-      html << @stair_component.table_row
+      html << stair_component.table_row
 
       (0...row_index).each do |column_index|
-        html << @stair_component.pre_td
-        pairs_occuring_at(row_index, column_index, @pairs, @member_info.members).times.each do
-          html << @stair_component.cell_content
+        html << stair_component.pre_td
+
+        @member_info.collaberations_at(row_index, column_index).times.each do
+          html << stair_component.cell_content
         end
-        html << @stair_component.post_td
+
+        html << stair_component.post_td
       end
-
-      html << @stair_component.table_header_for(row_index)
-
-
-      html << @member_info.member_name_at(row_index)  + "<\/th><\/tr>"
+      html << stair_component.table_header_for(row_index)
+      html << @member_info.member_name_at(row_index) + "<\/th><\/tr>"
     end
     html << "<\/table>"
   end
 
-  def pairs_occuring_at row_index, column_index, pairs, members
-    pairs.count {|pair| pair[members[row_index].trello_uuid] == members[column_index].trello_uuid }
+  private
+
+  def stair_component
+    @stair_component ||= StairComponent.new(@member_info.count)
   end
 end
