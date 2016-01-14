@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     members = OrganizationMember.all
     collaberations = Collaberation.includes(:members)
 
-    member_info = MemberInfo.new(members, collaberations)
-    @stair = StairBuilder.new(member_info).html
+    @member_info = MemberInfo.new(members, collaberations)
+    @stair_component = StairComponent.new(members.count)
   end
 end

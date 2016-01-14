@@ -1,0 +1,6 @@
+- if stair_component.last_header_needed_for?(row_index)
+  th.last width=stair_component.box_size height=stair_component.box_size
+    = member_info.member_name_at(row_index)
+- else
+  th width=stair_component.box_size height=stair_component.box_size
+    = member_info.member_name_at(row_index)
