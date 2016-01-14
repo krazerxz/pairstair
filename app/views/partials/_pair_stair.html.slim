@@ -1,8 +1,8 @@
 table
   - member_info.count.times do |row_index|
-    tr height=stair_component.box_size
+    tr height=member_info.box_size
       - (0...row_index).each do |column_index|
-        td width=stair_component.box_size height=stair_component.box_size
+        td width=member_info.box_size height=member_info.box_size
           - member_info.collaberations_at(row_index, column_index).times.each do
             i.fa.fa-star
-      = render partial: "partials/title", locals: {stair_component: stair_component, row_index: row_index, member_info: member_info}
+      = render partial: "partials/title", locals: {row_index: row_index, member_info: member_info}

@@ -17,6 +17,14 @@ class MemberInfo
     pairs.count {|collaberation| collaberation[@members[index_1].trello_uuid] == @members[index_2].trello_uuid }
   end
 
+  def last_header_needed_for? row_index
+    row_index == count - 1
+  end
+
+  def box_size
+    @side ||= "#{100 / count}%"
+  end
+
   private
 
   def pairs
