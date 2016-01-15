@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 
+gem 'capistrano'
 gem "coffee-rails"
 gem "figaro"
 gem "font-awesome-rails"
 gem "jquery-rails"
 gem "jbuilder"
-# gem "less-rails"
 gem "mysql2", ">= 0.3.13", "< 0.5"
 gem "rails"
 gem "ruby-trello"
