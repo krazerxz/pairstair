@@ -4,19 +4,16 @@ class CollaberationPersister
   end
 
   def persist
-    parse
+    member_ids = @collaberation_hash.delete(:members)
     @collaberation = Collaberation.new(@collaberation_hash)
+    members = member_ids.map {|id| create_member_with(id) }
     @collaberation.members = members
     @collaberation.save
   end
 
-  def parse
-    @collaberation_member_ids = @collaberation_hash.delete(:members)
-  end
-
   private
 
-  def members
-    @collaberation_member_ids.map {|member_uuid| Member.create(collaberation: @collaberation, member_uuid: member_uuid) }
+  def create_member_with id
+    Member.create(collaberation: @collaberation, member_uuid: id)
   end
 end
