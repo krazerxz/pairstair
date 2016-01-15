@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'capistrano'
+gem "capistrano"
 gem "coffee-rails"
 gem "figaro"
 gem "font-awesome-rails"
