@@ -28,10 +28,12 @@ end
 
 group :test do
   gem "cucumber-rails", require: false
-  gem "simplecov", require: false
   gem "database_cleaner"
+  gem "factory_girl"
+  gem "faker"
   gem "rubocop"
   gem "rspec-rails"
+  gem "simplecov", require: false
   gem "timecop"
   gem "vcr"
   gem "webmock"
