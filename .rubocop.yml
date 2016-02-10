@@ -26,7 +26,7 @@ Style/Lambda:
   Enabled: false
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
 Documentation:
   Enabled: false

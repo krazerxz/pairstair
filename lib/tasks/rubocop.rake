@@ -1,4 +1,4 @@
-if ENV["RACK_ENV"] != "production"
+if ENV["RAILS_ENV"] != "production"
   require "rubocop/rake_task"
 
   RuboCop::RakeTask.new
