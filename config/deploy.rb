@@ -27,5 +27,10 @@ namespace :deploy do
   after :deploy, "deploy:restart_web_app"
 end
 
-#set :rbenv_type, :system
-#set :rbenv_ruby, File.read('.ruby-version').strip
+#
+#
+set :rbenv_type, :system
+set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_path, "/opt/rbenv/"
+set :rbenv_prefix,
+  "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
