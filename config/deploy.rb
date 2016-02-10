@@ -20,7 +20,7 @@ namespace :deploy do
   desc "restart web app"
   task :restart_web_app do
     on roles(:app), in: :sequence, wait: 5 do
-      execute! :sudo, :service, "pairstair_puma", "restart"
+      execute :sudo, :service, "pairstair_puma", "restart"
     end
   end
 

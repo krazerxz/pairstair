@@ -18,6 +18,7 @@ gem "therubyracer"
 gem "twitter-bootstrap-rails"
 gem "uglifier"
 gem "whenever", require: false
+gem "puma"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
