@@ -281,6 +281,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capistrano
+  capistrano-bundler
   capistrano-rails
   coffee-rails
   cucumber-rails
@@ -310,4 +311,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

@@ -4,7 +4,8 @@ lock "3.4.0"
 
 set :application, "pairstair"
 set :pty, true
-set :repo_url, "git@gitlab.nat.bt.com:chris.pomfret/pairstair.git"
+set :repo_url, "http://gitlab.nat.bt.com/nimboids/pairstair.git"
+set :default_env, 'GIT_SSL_NO_VERIFY': "true"
 
 set :deploy_to, "/home/pairstair/pairstair"
 
@@ -25,3 +26,6 @@ namespace :deploy do
 
   after :deploy, "deploy:restart_web_app"
 end
+
+#set :rbenv_type, :system
+#set :rbenv_ruby, File.read('.ruby-version').strip
