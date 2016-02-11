@@ -20,15 +20,13 @@ namespace :deploy do
   desc "restart web app"
   task :restart_web_app do
     on roles(:app), in: :sequence, wait: 5 do
-      execute :sudo, :service, "pairstair_puma", "restart"
+      execute 'bundle exec pumactl restart'
     end
   end
 
   after :deploy, "deploy:restart_web_app"
 end
 
-#
-#
 set :rbenv_type, :system
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_path, "/opt/rbenv/"
