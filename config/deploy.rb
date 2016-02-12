@@ -15,20 +15,7 @@ set :linked_files, %w(config/secrets.yml config/database.yml config/puma.rb conf
 set :bundle_flags, "--retry 10 --deployment"
 
 set :whenever_command, "bundle exec whenever"
-
-
-#namespace :deploy do
-  #desc "restart web app"
-  #task :restart_web_app do
-    #on roles(:app), in: :sequence, wait: 5 do
-      #within release_path do
-        #execute :bundle, 'exec pumactl start'
-      #end
-    #end
-  #end
-
-  #after :deploy, "deploy:restart_web_app"
-#end
+set :puma_conf, "/home/pairstair/pairstair/shared/config/puma.rb"
 
 set :rbenv_type, :system
 set :rbenv_ruby, File.read('.ruby-version').strip
