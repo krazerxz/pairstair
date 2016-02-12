@@ -22,6 +22,7 @@ AllCops:
     - setup/**/*
     - Vagrantfile
     - lib/tasks/default.rake
+  TargetRubyVersion: 2.2
 Style/Lambda:
   Enabled: false
 Style/StringLiterals:

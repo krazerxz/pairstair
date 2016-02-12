@@ -3,10 +3,10 @@
 require "byebug"
 require "trello"
 
-ACCESS_MEMBER = "chrispomfret"
-ORG_ID        = "559a469f07b1a13dcbc32258"
-MAIN_BOARD_ID = "559a4ecf3f95ecde0fc1d2e5"
-DEV_LIST_ID   = "559a5a00d95959bd388b967d"
+ACCESS_MEMBER = "chrispomfret".freeze
+ORG_ID        = "559a469f07b1a13dcbc32258".freeze
+MAIN_BOARD_ID = "559a4ecf3f95ecde0fc1d2e5".freeze
+DEV_LIST_ID   = "559a5a00d95959bd388b967d".freeze
 
 Trello.configure do |config|
   config.developer_public_key = "c918168bb3da1a1f727f4a595328fc85"
