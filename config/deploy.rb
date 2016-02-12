@@ -10,22 +10,25 @@ set :default_env, 'GIT_SSL_NO_VERIFY': "true"
 set :deploy_to, "/home/pairstair/pairstair"
 
 set :rails_env, "production"
-set :linked_files, %w(config/secrets.yml config/database.yml config/application.yml)
+set :linked_files, %w(config/secrets.yml config/database.yml config/puma.rb config/application.yml)
 
 set :bundle_flags, "--retry 10 --deployment"
 
 set :whenever_command, "bundle exec whenever"
 
-namespace :deploy do
-  desc "restart web app"
-  task :restart_web_app do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute 'bundle exec pumactl restart'
-    end
-  end
 
-  after :deploy, "deploy:restart_web_app"
-end
+#namespace :deploy do
+  #desc "restart web app"
+  #task :restart_web_app do
+    #on roles(:app), in: :sequence, wait: 5 do
+      #within release_path do
+        #execute :bundle, 'exec pumactl start'
+      #end
+    #end
+  #end
+
+  #after :deploy, "deploy:restart_web_app"
+#end
 
 set :rbenv_type, :system
 set :rbenv_ruby, File.read('.ruby-version').strip

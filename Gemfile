@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "capistrano"
 gem "capistrano-rails"
+gem "capistrano3-puma"
 #gem "capistrano-bundler"
 gem 'capistrano-rbenv'
 gem "coffee-rails"
